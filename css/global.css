@@ -260,7 +260,204 @@
 
 @layer components {
   .our-services {
+    margin: 100px 0;
+  }
+  .service-title {
+    font-size: 72px;
+  }
+  .service-container {
+    width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1px 1fr;
+    grid-template-rows: auto;
+    grid-template-areas:
+      ". service-border weddings"
+      "corporate-events service-border ."
+      ". service-border birthday-parties"
+      "special-occasions service-border .";
+  }
+
+  .service-border {
+    grid-area: service-border;
+    border-left: 1px solid;
+    border-image-source: var(--gradient-gold-3);
+    border-image-slice: 1;
+  }
+
+  .service-content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+  }
+
+  .service-name {
+    font-size: 32px;
+    color: var(--brand-color);
+  }
+
+  .weddings {
+    grid-area: weddings;
+  }
+
+  .weddings img,
+  .birthday-parties img {
+    order: 1;
+  }
+
+  .weddings .service-name,
+  .birthday-parties .service-name {
+    order: 2;
+  }
+
+  .weddings .service-description,
+  .birthday-parties .service-description {
+    order: 3;
+  }
+
+  .corporate-events {
+    grid-area: corporate-events;
+  }
+  .birthday-parties {
+    grid-area: birthday-parties;
+  }
+  .special-occasions {
+    grid-area: special-occasions;
+  }
+}
+
+/* Why Choose us? */
+
+@layer components {
+  .why-choose-us-title {
+    font-size: 72px;
+    text-align: right;
+    margin-bottom: 2rem;
+  }
+
+  .why-choose-us-container {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    position: relative;
+  }
+
+  .why-choose-us-card {
+    width: 50%;
+    padding: 4rem;
+  }
+  .why-choose-us-card-title {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1rem;
+    color: var(--brand-color);
+    font-size: 32px;
+    white-space: nowrap;
+    overflow: hidden;
+  }
+  .chef {
+    border-left: 1px solid;
+    border-image-source: var(--gradient-gold-3);
+    border-image-slice: 1;
+  }
+  .menu {
+    border-top: 1px solid;
+    border-image-source: var(--gradient-gold-3);
+    border-image-slice: 1;
+  }
+  .price {
+    border-bottom: 1px solid;
+    border-image-source: var(--gradient-gold-3);
+    border-image-slice: 1;
+  }
+  .quality {
+    border-right: 1px solid;
+    border-image-source: var(--gradient-gold-3);
+    border-image-slice: 1;
+  }
+  .why-choose-us-horizontal {
+    width: 100%;
+    height: 1px;
+    position: absolute;
+    border-bottom: 1px solid;
+    border-image-source: var(--gradient-gold-3);
+    border-image-slice: 1;
+    top: 50%;
+  }
+  .why-choose-us-vertical {
+    width: 1px;
+    height: 100%;
+    border-left: 1px solid;
+    border-image-source: var(--gradient-gold-3);
+    border-image-slice: 1;
+    position: absolute;
+    left: 50%;
+  }
+}
+
+/* Footer */
+
+@layer components {
+  footer {
     margin-top: 100px;
+    margin-bottom: 2rem;
+  }
+
+  .booking {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    margin-bottom: 75px;
+  }
+
+  .booking-cta button {
+    margin-right: 1rem;
+  }
+
+  .booking-title {
+    font-size: 72px;
+  }
+
+  .footer-main {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: auto;
+    grid-row-gap: 2rem;
+    grid-template-areas:
+      "branding branding branding footer-links"
+      "address copyright conditions socials-links";
+  }
+
+  .footer-main .branding {
+    grid-area: branding;
+  }
+  .footer-main p,
+  .footer-main a {
+    font-size: 1rem;
+    white-space: nowrap;
+  }
+  .address {
+    grid-area: address;
+  }
+  .copyright {
+    grid-area: copyright;
+  }
+  .conditions {
+    grid-area: conditions;
+  }
+  .footer-links {
+    grid-area: footer-links;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .socials-link {
+    grid-area: socials-links;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
   }
 }
 
