@@ -1,0 +1,279 @@
+@layer reset, theme, base, components,utils;
+
+@layer reset {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  * {
+    margin: 0;
+  }
+
+  body {
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img,
+  picture,
+  video,
+  canvas,
+  svg {
+    display: block;
+    max-width: 100%;
+  }
+
+  input,
+  button,
+  textarea,
+  select {
+    font: inherit;
+  }
+
+  p,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    overflow-wrap: break-word;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    text-wrap: balance;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  li {
+    list-style: none;
+  }
+
+  button {
+    padding: 0;
+    border: none;
+    font: inherit;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+
+@layer theme {
+  :root {
+    --bg-color: #f0e8e8;
+    --foreground-color: #262626;
+    --brand-color: #0a0081;
+    --gradient-gold-1: linear-gradient(
+      -109deg,
+      #bb9853 0%,
+      #ffd583 84%,
+      #df8667 96%
+    );
+    --gradient-gold-2: linear-gradient(
+      -162deg,
+      #bb9853 0%,
+      #ffd583 28%,
+      #df8667 96%
+    );
+    --gradient-gold-3: linear-gradient(
+      54deg,
+      #a68443 0%,
+      #ffd583 28%,
+      #cfa95e 96%
+    );
+  }
+}
+
+@layer base {
+  body {
+    max-width: 1440px;
+    margin: 0 auto;
+    font-size: 1.25rem;
+    background: var(--bg-color);
+    color: var(--foreground-color);
+    padding: 24px 96px;
+    font-family: "Inter", sans-serif;
+    letter-spacing: 0.15px;
+
+    @media (max-width: 800px) {
+      font-size: 1rem;
+    }
+  }
+
+  .btn {
+    font-weight: 700;
+    padding: 8px 12px;
+    font-family: "Playfair Display", Georgia, "Times New Roman";
+  }
+}
+
+/* Header */
+
+@layer components {
+  header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+  }
+
+  .branding {
+    a {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+    }
+
+    h1 {
+      font-size: 24px;
+      font-weight: 800;
+    }
+
+    img {
+      width: 20px;
+      height: 20px;
+      position: relative;
+      top: 1px;
+    }
+  }
+
+  nav {
+    ul {
+      display: flex;
+    }
+    ul li {
+      font-size: 1.25rem;
+      margin-right: 2rem;
+    }
+  }
+}
+
+/* Hero section */
+
+@layer components {
+  .hero-section {
+    margin-top: 4rem;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, 25%);
+    grid-template-rows: repeat(7, 225px);
+  }
+
+  .hero-main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    grid-row: 2/3;
+    grid-column: 3/5;
+  }
+
+  .hero-cta {
+    align-self: flex-end;
+  }
+
+  .hero-title {
+    display: flex;
+    flex-direction: column;
+    border: 1px red solid;
+    padding: 24px;
+    line-height: 1.2;
+    border: 2px solid;
+    border-image-source: var(--gradient-gold-1);
+    border-image-slice: 1;
+    grid-column: 2/5;
+    grid-row: 1/2;
+    width: calc(100% + 75px);
+    transform: translateX(-75px);
+  }
+
+  .hero-title h3 {
+    font-size: 72px;
+    text-align: right;
+    white-space: nowrap;
+  }
+  .hero-description {
+    width: 100%;
+    text-align: right;
+    margin-left: auto;
+    margin-top: 1rem;
+  }
+  .hero-image-1 {
+    width: 100%;
+    grid-column: 1/3;
+    grid-row: 2/3;
+    transform: translateY(-75px);
+  }
+
+  .hero-image-2 {
+    grid-column: 3/5;
+    grid-row: 3/5;
+    margin-left: auto;
+    transform: translateY(2rem);
+  }
+  .hero-image-3 {
+    grid-column: 1/3;
+    grid-row: 6/8;
+    transform: translateY(-75px);
+  }
+  .hero-about {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    max-width: 540px;
+    grid-column: 3/5;
+    grid-row: 7/8;
+    margin-left: auto;
+  }
+  .hero-about h3 {
+    font-size: 72px;
+  }
+  .hero-about-description {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .hero-about-link a {
+    text-decoration: underline;
+    color: var(--brand-color);
+  }
+}
+
+/* Our services */
+
+@layer components {
+}
+
+@layer utils {
+  .font-serif {
+    font-family: "Playfair Display", Georgia, "Times New Roman";
+    color: var(--brand-color);
+    letter-spacing: 0.5px;
+  }
+
+  .primary-btn {
+    background: var(--gradient-gold-3);
+    border: 2px solid;
+    border-image-source: var(--gradient-gold-3);
+    border-image-slice: 1;
+  }
+  .secondary-btn {
+    border: 2px solid;
+    border-image-source: var(--gradient-gold-1);
+    border-image-slice: 1;
+  }
+}
